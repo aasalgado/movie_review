@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  resources :reviews
+
   devise_for :users
-  resources :movies
+
+  # reviews is now nest in movies
+  resources :movies do
+    resources :reviews, except: [:show, :index]
+  end
+
   root 'movies#index'
+  
 end
