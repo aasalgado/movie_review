@@ -2,9 +2,11 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  # reviews is now nest in movies
   resources :movies do
-    resources :reviews, except: [:show, :index]
+    collection do
+      get 'search'
+    end
+    resources :reviews, except: [:show, :index] # reviews is now nest in movies
   end
 
   root 'movies#index'
