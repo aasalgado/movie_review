@@ -17,6 +17,9 @@ gem 'paperclip', '~> 5.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'jquery-rails'
 gem 'searchkick', '~> 2.4'
+group :production do  # Added postgres and made it production only.
+  gem 'pg'
+end
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
@@ -31,9 +34,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-group :production do  # Added postgres and made it production only.
-  gem 'pg'
-end
+
 gem 'rails_12factor'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
